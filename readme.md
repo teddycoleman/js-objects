@@ -74,7 +74,7 @@ function Classroom(name, numberOfStudents) {
   this.numberOfStudents = numberOfStudents;
 }
 
-var wdi = new Classroom("WDI 4 London", 25);
+var wdi = new Classroom("WDI 29 San Francisco", 18);
 ```
 
 #### Object.create
@@ -97,9 +97,9 @@ person1.displayType();
 => Human
 
 var person2 = Object.create(Person);
-person2.type = "Man";
+person2.type = "Male";
 person2.displayType();
-=> Man
+=> "Male"
 ```
 
 ## Object Properties
@@ -110,24 +110,19 @@ You can think of a property on a JavaScript object as a type of variable that co
 
 ```javascript
 var Person = {
-  name: "Gerry"
+  name: "Ben"
 }
 
 Person.name
-=> "Gerry"
+=> "Ben"
 ```
 
 You can define or re-assign a property by assigning it a value using `=` as you would a normal variable.
 
 ```javascript
-var Person = {
-  name: "Gerry"
-}
-
-Person.name
-=> "Gerry"
 
 Person.name = "Alex"
+
 Person.name
 => "Alex"
 ```
@@ -140,14 +135,14 @@ We are going to create an object `classroom` that contains properties `name` and
 var classroom = new Object();
 => undefined
 
-classroom.name = "WDI 2";
-=> "WDI 2"
+classroom.name = "WDI 29";
+=> "WDI 29"
 
-classroom.campus = "London";
-=> "London"
+classroom.campus = "San Francisco";
+=> "San Francisco"
 
 classroom
-=> Object {name: "WDI 2", campus: "London"}
+=> Object {name: "WDI 29", campus: "San Francisco"}
 ```
 
 #### Bracket notation
@@ -155,20 +150,20 @@ classroom
 There is another way to set properties on a JavaScript object.
 
 ```javascript
-classroom["name"]   = "WDI 2";
-classroom["campus"] = "London";
+classroom["name"]   = "WDI 29";
+classroom["campus"] = "San Francisco";
 ```
 
 This syntax can also be used to read properties of an object:
 
 ```javascript
 console.log(classroom["name"]);
-=> "WDI 2";
+=> "WDI 29";
 
 var property = "campus";
 
 console.log(classroom[property]);
-=> "London";
+=> "San Francisco";
 ```
 
 For more details see [MDN's Documentation on Property Accessors](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Property_Accessors).
@@ -181,10 +176,10 @@ If you want to delete a property of an object (and by extension, the value attac
 The following code shows how to remove a property:
 
 ```
-var classroom = {name: "WDI 2", campus: "London", start: "1/1/2000"};
+var classroom = {name: "WDI 29, campus: "San Francisco", start: "5/2/2016"};
 delete classroom.start;
 classroom
-=> {name: "WDI 2", campus: "London"}
+=> {name: "WDI 29", campus: "San Francisco"}
 ```
 
 ## Object methods
@@ -193,9 +188,9 @@ As we've said before, the value of a property can be anything in JavaScript, mea
 
 ```javascript
 var classroom = {
-  name: "WDI 2",
-  campus: "London",
-  start: "1/1/2000",
+  name: "WDI 29",
+  campus: "San Francisco",
+  start: "5/2/2016",
   sayHello: function() {
     console.log("Hello");
   }
@@ -229,21 +224,21 @@ In JavaScript, `this` is a keyword that refers to the current object. When used 
 
 ```
 var classroom = {
-  name: "WDI 2",
-  campus: "London",
-  start: "1/1/2000",
+  name: "WDI 29",
+  campus: "San Francisco",
+  start: "5/2/2016",
   classInfo: function(){
     console.log("This is " + this.name + " and the class starts on " + this.start);
   }
 };
 
 classroom.classInfo()
-=> This is WDI 2 and it starts on 1/1/2000
+=> This is WDI 29 and it starts on 5/2/2016
 ```
 
 ## We Do: Getters and setters
 
-> A getter is a method that gets the value of a specific property. A setter is a method that sets the value of a specific property. You can define getters and setters on any predefined core object or user-defined object that supports the addition of new properties. The syntax for defining getters and setters uses the object literal syntax.
+> A getter is a method that gets the value of a specific property. A setter is a method that sets the value of a specific property. You can define getters and setters on any predefined core object or user-defined object that supports the addition of new properties. The syntax for defining getters and setters uses object literals.
 
 ```javascript
 var o = {
