@@ -176,7 +176,7 @@ If you want to delete a property of an object (and by extension, the value attac
 The following code shows how to remove a property:
 
 ```
-var classroom = {name: "WDI 29, campus: "San Francisco", start: "5/2/2016"};
+var classroom = {"name": "WDI 29, "campus": "San Francisco", "start": "5/2/2016"};
 delete classroom.start;
 classroom
 => {name: "WDI 29", campus: "San Francisco"}
@@ -278,7 +278,7 @@ There are three native ways to list the properties of an object:
 You can use the bracket notation with for...in to iterate over all the enumerable properties of an object.
 
 ```javascript
-var myCar = {make: "Ford", model: "Mustang", year: 1969};
+var myCar = {"make": "Ford", "model": "Mustang", "year": 1969};
 
 function showProps(obj, objName) {
   var result = "";
