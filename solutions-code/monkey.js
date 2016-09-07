@@ -1,14 +1,14 @@
 // Create a constructor function that makes a monkey
 function Monkey(name, species) {
-  this.name       = name;
-  this.species    = species;
+  this.name = name;
+  this.species = species;
   this.foodsEaten = [];
   this.eatSomething = function(food) {
     this.foodsEaten.push(food);
-  }
+  };
   this.introduce = function() {
     console.log("My name is "+ this.name +". I come from the "+ this.species + " family. I have eaten "+ this.foodsEaten.join(", ") + ".");
-  }
+  };
 }
 
 var monkey1 = new Monkey("Jack", "Howler");

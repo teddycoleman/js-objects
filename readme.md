@@ -24,8 +24,8 @@ Objects in JavaScript
 ### What is an object?
 
 * Objects are a type of data structure that is nearly universal across programming languages, although they may have different names in different languages
-* Like arrays, objects can hold multiple pieces of data of varying types; but unlike arrays, objects use named keys rather than indices to order and access those pieces of data
-* Objects in general are made up of two things – properties and methods. Properties are data attached to an object that describe it or are related to it in some way. Methods are just functions, but because they're attached to an object, you can think of them as actions that the object can invoke on itself
+* Like arrays, objects can hold multiple pieces of data of varying types; but unlike arrays, objects use named keys rather than indices to organize and access those pieces of data
+* Objects in general are made up of two things – properties and values. Properties are data attached to an object that describe it or are related to it in some way. Values can be any of the data types or data structures we've looked at so far, or they can be methods. Methods are just functions, but because they're attached to an object, you can think of them as actions that the object can invoke
 * In JavaScript, an object is a type of key-value store, or a way to group many pairs of keys and values together, so sometimes it's used like a hash (in Ruby) or a dictionary (in other languages)
 
 Example: A car has properties, a type of engine, a color, a certain number of seats etc. Following the same logic, a JavaScript object may have **properties** and **values** for these properties.
@@ -36,9 +36,9 @@ Aside from the values `null` and `undefined`, **everything in JavaScript is an o
 
 Javascript objects work as lists of keys (**A property name**) and corresponding values (**A property value**).
 
-This way of storing/reading data is widely used across programs and languages because it’s highly customisable and quick to implement.
+This way of storing/reading data is widely used across programs and languages because it’s highly flexible and quick to implement.
 
-A key can be either a name, a number or a string, the corresponding value to a key can be any value part of JavaScript, including arrays, `null` or `undefined`and even another object. Objects structures can therefore be nested (objects inside objects) and of any complexity.
+A key can be either a name, a number or a string, the corresponding value to a key can be any data type in JavaScript, including arrays, `null` or `undefined`and even another object. Objects structures can therefore be nested (objects inside objects) and of any complexity.
 
 ## Creating Objects
 
@@ -66,7 +66,7 @@ var myObject = {};
 
 It is also possible to use a `function` statement to create an object that serves as a "constructor function."
 
-The first step is to write a function that will define the object. By convention, this function we start the function name with a capital letter. Once the function is defined (in the current scope), you can create a new object by using the keyword `new`.
+The first step is to write a function that will define the object. By convention, we start the name of a constructor function with a capital letter. Once the function is defined (in the current scope), you can create a new object by using the keyword `new`.
 
 ```javascript
 function Classroom(name, numberOfStudents) {
@@ -74,14 +74,14 @@ function Classroom(name, numberOfStudents) {
   this.numberOfStudents = numberOfStudents;
 }
 
-var wdi = new Classroom("WDI 29 San Francisco", 18);
+var wdi = new Classroom("WDI 32 San Francisco", 18);
 ```
 
 #### Object.create
 
 It is possible to use the syntax [`Object.create()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create).
 
-This method can take an object in argument as the prototype, allowing you to create an object without having to use a constructor function.
+This method can take a prototype object as an argument, allowing you to create an object without having to use a constructor function.
 
 
 ```javascript
@@ -135,14 +135,14 @@ We are going to create an object `classroom` that contains properties `name` and
 var classroom = new Object();
 => undefined
 
-classroom.name = "WDI 29";
-=> "WDI 29"
+classroom.name = "WDI 32";
+=> "WDI 32"
 
 classroom.campus = "San Francisco";
 => "San Francisco"
 
 classroom
-=> Object {name: "WDI 29", campus: "San Francisco"}
+=> Object {name: "WDI 32", campus: "San Francisco"}
 ```
 
 #### Bracket notation
@@ -150,7 +150,7 @@ classroom
 There is another way to set properties on a JavaScript object.
 
 ```javascript
-classroom["name"]   = "WDI 29";
+classroom["name"]   = "WDI 32";
 classroom["campus"] = "San Francisco";
 ```
 
@@ -158,7 +158,7 @@ This syntax can also be used to read properties of an object:
 
 ```javascript
 console.log(classroom["name"]);
-=> "WDI 29";
+=> "WDI 32";
 
 var property = "campus";
 
@@ -176,10 +176,10 @@ If you want to delete a property of an object (and by extension, the value attac
 The following code shows how to remove a property:
 
 ```
-var classroom = {"name": "WDI 29, "campus": "San Francisco", "start": "5/2/2016"};
+var classroom = {"name": "WDI 32, "campus": "San Francisco", "start": "9/6/2016"};
 delete classroom.start;
 classroom
-=> {name: "WDI 29", campus: "San Francisco"}
+=> {name: "WDI 32", campus: "San Francisco"}
 ```
 
 ## Object methods
@@ -188,9 +188,9 @@ As we've said before, the value of a property can be anything in JavaScript, mea
 
 ```javascript
 var classroom = {
-  name: "WDI 29",
+  name: "WDI 32",
   campus: "San Francisco",
-  start: "5/2/2016",
+  start: "9/6/2016",
   sayHello: function() {
     console.log("Hello");
   }
@@ -224,16 +224,16 @@ In JavaScript, `this` is a keyword that refers to the current object. When used 
 
 ```
 var classroom = {
-  name: "WDI 29",
+  name: "WDI 32",
   campus: "San Francisco",
-  start: "5/2/2016",
+  start: "9/6/2016",
   classInfo: function(){
     console.log("This is " + this.name + " and the class starts on " + this.start);
   }
 };
 
 classroom.classInfo()
-=> This is WDI 29 and it starts on 5/2/2016
+=> This is WDI 32 and it starts on 9/6/2016
 ```
 
 ## We Do: Getters and setters
@@ -282,9 +282,9 @@ var myCar = {"make": "Ford", "model": "Mustang", "year": 1969};
 
 function showProps(obj, objName) {
   var result = "";
-  for (var i in obj) {
-    if (obj.hasOwnProperty(i)) {
-      result += objName + "." + i + " = " + obj[i] + "\n";
+  for (var key in obj) {
+    if (obj.hasOwnProperty(key)) {
+      result += objName + "." + key + " = " + obj[key] + "\n";
     }
   }
   return result;
@@ -351,3 +351,7 @@ We will use objects in JavaScript every day, and you will have plenty of time to
 * OOP is a stylistic approach to organizing code
 
 -->
+
+## Licensing
+All content is licensed under a CC­BY­NC­SA 4.0 license.
+All software code is licensed under GNU GPLv3. For commercial use or alternative licensing, please contact legal@ga.co.
