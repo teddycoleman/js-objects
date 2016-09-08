@@ -21,5 +21,5 @@ monkey1.eatSomething("apple");
 monkey1.foodEaten;
 monkey2.name;
 monkey3.name;
-monkey3.introduce;
+monkey3.introduce();
 
